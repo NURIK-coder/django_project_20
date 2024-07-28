@@ -1,0 +1,20 @@
+<title>{% block title %} Musics Page {% endblock title %}</title>
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Musics:</h1>
+    {% for m in musics %}
+        <div class="musics_div">
+            <h1>{{m.name}}</h1>
+            <p>Year: {{m.year}}</p>
+            <p>Created at: {{m.created_at}}</p>
+            <audio src="{{ m.file.url }}" controls>{{m.file}}</audio>
+        </div>
+    {% endfor %}
+    <a class="main_page_link" href="{% url 'main' %}">Main Page</a>
+{% endblock content %}

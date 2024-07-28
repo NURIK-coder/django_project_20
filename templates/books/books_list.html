@@ -1,0 +1,25 @@
+<title>{% block title %} Books Page {% endblock title %}</title>
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <div class="books_title">
+        <h1>Books:</h1>
+    </div>
+    <a href="{% url 'book_create' %}">Create</a>
+
+    {% for b in books %}
+        <div class="books_div">
+            <h1><a href="{% url 'book_detail' %}">{{b.name}}</a></h1>
+            <p>Author: {{b.author}}</p>
+            <p>Pages: {{b.num_page}}</p>
+            <a href="{% url 'book_update' %}">Update</a>
+            <a href="{% url 'book_delete' %}">Delete</a>
+        </div>
+    {% endfor %}
+    <a class="main_page_link" href="{% url 'main' %}">Main Page</a>
+{% endblock content %}

@@ -1,0 +1,24 @@
+<title>{% block title %} Main Page {% endblock title %}</title>
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <header>
+       <div class="main_title">
+           <h1>Hello</h1>
+
+       </div>
+        <a href="{% url 'register' %}">Logout</a>
+
+        <nav class="links_nav">
+            <a class="navbar_a1" href="{% url 'books_list' %}" >Книги</a>
+            <a class="navbar_a2" href="{% url 'music' %}">Музыка</a>
+            <a class="navbar_a3" href="{% url 'video'%}">Видео</a>
+            <a class="navbar_a4" href="{% url 'picture' %}">Картинки</a>
+        </nav>
+    </header>
+{% endblock content %}

@@ -1,0 +1,18 @@
+<title>{% block title %} Pictures Page {% endblock title %}</title>
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Pictures:</h1>
+    {% for p in pictures %}
+        <div class="pictures_div">
+            <h1>{{p.name}}</h1>
+            <img src="{{p.img.url}}">
+        </div>
+    {% endfor %}
+    <a class="main_page_link" href="{% url 'main' %}">Main Page</a>
+{% endblock content %}

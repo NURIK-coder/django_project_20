@@ -1,0 +1,17 @@
+<h1>Мой профиль</h1>
+<h2>Избранные книги</h2>
+<div>
+    {% for book in favourite_books %}
+
+    <a href="{% url 'books:book_detail' book.id %}">{{ book.title }}</a>
+
+    {% endfor %}
+</div>
+
+<h2>Избранная музыка</h2>
+<div>
+    {% for music in favourite_music %}
+    <a href="{% url 'music:music_detail' music.id %}">{{ music.title }}</a>
+    {% endfor %}
+</div>
+

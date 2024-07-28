@@ -1,0 +1,20 @@
+<title>{% block title %} Videos Page {% endblock title %}</title>
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock style %}
+
+{% block content %}
+    <h1>Musics:</h1>
+    {% for v in videos %}
+        <div class="videos_div">
+            <h1>{{v.name}}</h1>
+            <p>Date: {{v.datetime}}</p>
+            <p>Created at: {{v.created_at}}</p>
+            <video src="{{ m.file.url }}" controls>{{v.img}}</video>
+        </div>
+    {% endfor %}
+    <a class="main_page_link" href="{% url 'main' %}">Main Page</a>
+{% endblock content %}
